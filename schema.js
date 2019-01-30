@@ -18,9 +18,25 @@ const LaunchType = new GraphQLObjectType({
         launch_year: {type: GraphQLString},
         launch_date_local: {type: GraphQLString},
         launch_success: {type: GraphQLBoolean},
-        rocket: {type: RocketType}
+        rocket: {type: RocketType},
+        links:{ type: LinkType}
     })
 });
+
+//Link Type
+const LinkType = new GraphQLObjectType({
+    name:'Link',
+    fields: () =>({
+        mission_patch_small: {type: GraphQLString},
+        flickr_images : {type: new GraphQLList(GraphQLString)}
+    })
+});
+
+// //fImages Type
+// const fImagesType = new GraphQLObjectType({
+//     name:'fImages',
+//     type: GraphQLString
+// });
 
 //Rocket Type
 const RocketType = new GraphQLObjectType({
